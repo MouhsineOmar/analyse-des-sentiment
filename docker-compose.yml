@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: gestiondesprojet-backend
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build:
+      context: ./realtime
+      dockerfile: Dockerfile
+    container_name: gestiondesprojet-frontend
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./realtime:/app

@@ -1,0 +1,4 @@
+flask
+tensorflow==2.9.1
+opencv-python
+flask-cors
